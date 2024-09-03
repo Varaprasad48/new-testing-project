@@ -13,7 +13,7 @@ export const typeOrmConfig: DataSourceOptions = {
   port: 3306,
   username: 'root',
   password: '',
-  database: 'ramesh', 
+  database: 'test', 
   timezone: 'Z',
   migrations: ['dist/database/migrations/*.js*{.ts,.js}'],
 }

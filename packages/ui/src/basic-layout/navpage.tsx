@@ -7,7 +7,7 @@ import {
   MenuUnfoldOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { LoginComponent } from "../common";
+import { LoginComponent, NewLoginComponent } from "../common";
 
 const { Sider, Header, Content } = Layout;
 
@@ -83,7 +83,7 @@ const NavPage: React.FC = () => {
             minHeight: 600,
           }}
         >
-          <LoginComponent />
+          <NewLoginComponent />
 
         </Content>
       </Layout>

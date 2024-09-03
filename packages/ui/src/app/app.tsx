@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { LoginComponent } from "../common"; // Adjust the import path if necessary
 import CompanyGrid from "../components/pages/trackx/masters/todolist/todo.list.grid";
+import NewLoginComponent from "../common/iam-client-react/login-component/new-login-component/new-login-component";
 
 const { Content } = Layout;
 
@@ -15,7 +16,7 @@ const App: React.FC = () => {
       <Content>
 
         <Routes>
-          <Route path="/" element={<LoginComponent />} />
+          <Route path="/" element={<NewLoginComponent />} />
           <Route path="/navpage" element={<CompanyGrid />} />
         </Routes>
 

@@ -16,7 +16,6 @@ const CompanyGrid = () => {
     const { IAMClientAuthContext } = useIAMClientState();
     const id = localStorage.getItem("userId");
     const roles = localStorage.getItem(id).split(',');
-    console.log(id, roles, "LLLLLLLLLLLLLLLLLLL", roles)
     const [visible, setVisible] = useState(false);
 
     function handleOk() {
@@ -81,12 +80,12 @@ const CompanyGrid = () => {
 
     const columns = [
         {
-            title: 'Task',
+            title: 'Organization Name',
             dataIndex: 'task',
             key: 'task'
         },
         {
-            title: 'Description',
+            title: 'Email',
             dataIndex: 'description',
             key: 'description'
         },
@@ -128,7 +127,7 @@ const CompanyGrid = () => {
     return (
         <>
             <Card
-                title='Tasks'
+                title='Organization Details'
                 extra={
                     <div>
                         <Button
@@ -163,7 +162,7 @@ const CompanyGrid = () => {
             </Card>
 
             <Drawer
-                title="Company"
+                title="Organization"
                 width={550}
                 open={openCompanyFormDrawer}
                 onClose={drawerOnClose}

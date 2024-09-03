@@ -16,7 +16,6 @@ const CompanyForm: React.FC<CompanyIProps> = ({ initialValues, formRef, drawerOn
   const id = localStorage.getItem("userId");
   const roles = localStorage.getItem(id);
 
-  console.log(id, roles, "LLLLLLLLLLLLLLLLLLL")
   useEffect(() => {
     if (initialValues) {
       formRef.setFieldsValue(initialValues);
@@ -47,27 +46,46 @@ const CompanyForm: React.FC<CompanyIProps> = ({ initialValues, formRef, drawerOn
 
   return (
     <Form
+      layout='vertical'
       form={formRef}
     >
       <Form.Item name={"id"} hidden >
         <Input />
       </Form.Item>
 
+      <Row gutter={24}>
+        <Col span={112}>
+          <Form.Item label="Organization Name"
+            name="task"
+            rules={[{
+              required: true, message: 'Enter Organization Name'
+            },
+            {
+              pattern: /^[a-zA-Z&]+(?: [a-zA-Z]+)*$/,
+              message: 'Enter Characters Only'
+            }]}>
+            <Input
+              placeholder="Enter Organization Name" />
+          </Form.Item>
+        </Col>
+
+        <Col span={12}>
+          <Form.Item label="Email"
+            rules={[{
+              required: true,
+
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.(com|in)$/i,
+              message: 'Kindly include "@"".com"".in"'
+            }]}
+            name="description">
+            <Input
+              placeholder="Enter Email" />
+          </Form.Item>
+        </Col>
+      </Row>
       <Row>
-        <Col span={16} offset={1}>
-          <Form.Item label="Task" name="task" wrapperCol={{ span: 30 }}>
-            <Input placeholder='Please enter task' />
-          </Form.Item>
-        </Col>
-        <Col span={16} offset={1}>
-          <Form.Item label="Description" name="description" wrapperCol={{ span: 30 }}>
-            <Input placeholder='Please Enter Description' />
-          </Form.Item>
-        </Col>
 
-
-
-        <Col span={2} offset={2}>
+        <Col span={2}>
           <Form.Item label={' '}>
             <Button type='primary' onClick={TaskCreate}>
               Submit
